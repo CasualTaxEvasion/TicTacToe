@@ -2,4 +2,4 @@
 
 Executable in Program folder
 
-Just a neat little tictac toe program i made
+Just a neat little tictactoe program i made
