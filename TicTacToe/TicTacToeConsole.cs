@@ -64,11 +64,11 @@ namespace Games
 
             if((instance.Player == TicTacToe.BlockType.X ? PlayerX : PlayerO) == TicTacToePlayer.Human)
             {
-                Console.WriteLine("Commands:\n set [x] [y]\n");
+                Console.WriteLine("        Commands:\n         set [x] [y]\n         restart\n");
             }
             else
             {
-                Console.WriteLine("\n\n");
+                Console.WriteLine("\n\n\n");
             }
             
 
@@ -116,6 +116,8 @@ namespace Games
             Console.Clear();
             Refresh();
         }
+
+        //ugly ):
         private void ParseInput(TicTacToe instance)
         {
             string[] input = Console.ReadLine().ToLower().Split(' ');
@@ -133,8 +135,11 @@ namespace Games
             switch(input[0]) 
             {
                 case "set":
-                    if(input.Length != 3) 
+                    if(input.Length != 3)
+                    {
                         ParseInput(instance);
+                        return;
+                    }
 
                     if (int.TryParse(input[1], out int x) && int.TryParse(input[2], out int y) && instance.SetValue(x-1, y-1))
                     {
